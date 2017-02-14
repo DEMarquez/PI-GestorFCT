@@ -1,0 +1,33 @@
+<!DOCTIPE html>
+<html>
+  <head>
+    <link href="{{asset('/css/styleGfct.css')}}" rel="stylesheet">
+  </head>
+  <body class="cuerpo">
+    <h1>GESTOR FCT TODOS LOS ALUMNOS</h1>
+    <table id="alumnos">
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>DNI</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>Residencia</th>
+        <th>Transporte</th>
+        <th>Grupo</th>
+      </tr>
+    {% for item in alumnos %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.dni }}</td>
+        <td>{{ item.direccion }}</td>
+        <td>{{ item.Telefono }}</td>
+        <td>{{ item.residencia }}</td>
+        <td>{{ item.transporte }}</td>
+        <td>{{ item.grupo }}</td>
+      <tr>
+    {% endfor %}
+    </table>
+  </body>
+</html>

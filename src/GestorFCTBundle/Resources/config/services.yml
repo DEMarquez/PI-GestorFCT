@@ -1,0 +1,4 @@
+services:
+#    gestor_fct.example:
+#        class: GestorFCTBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

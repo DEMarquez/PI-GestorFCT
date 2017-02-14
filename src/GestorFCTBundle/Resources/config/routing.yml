@@ -1,0 +1,23 @@
+gestor_fct_homepage:
+    path:     /
+    defaults: { _controller: GestorFCTBundle:Default:index }
+
+Empresas_all:
+    path:     /empresas/all
+    defaults: { _controller: GestorFCTBundle:Empresas:all }
+
+Alumnos_all:
+    path:     /alumnos/all
+    defaults: { _controller: GestorFCTBundle:Alumnos:all }
+
+Profesores_all:
+    path:     /profesores/all
+    defaults: { _controller: GestorFCTBundle:Profesores:all }
+
+Grupo_all:
+    path:     /grupo/all
+    defaults: { _controller: GestorFCTBundle:Grupo:all }
+
+Empresas_new:
+    path:     /empresas/new
+    defaults: { _controller: GestorFCTBundle:Empresas:new }
