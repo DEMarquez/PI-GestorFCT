@@ -63,13 +63,16 @@ class Alumnos
      */
     private $transporte;
 
-
     /**
      * @ORM\ManyToOne(targetEntity="Grupo", inversedBy="alumnos")
      * @ORM\JoinColumn(name="grupo_id", referencedColumnName="id")
      */
     private $grupo;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Asignaciones", mappedBy="idAlumno")
+     */
+    private $asignacionAlumno;
 
     /**
      * Get id
@@ -247,5 +250,46 @@ class Alumnos
     public function getGrupo()
     {
         return $this->grupo;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->asignacionAlumno = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add asignacionAlumno
+     *
+     * @param \GestorFCTBundle\Entity\Asignaciones $asignacionAlumno
+     *
+     * @return Alumnos
+     */
+    public function addAsignacionAlumno(\GestorFCTBundle\Entity\Asignaciones $asignacionAlumno)
+    {
+        $this->asignacionAlumno[] = $asignacionAlumno;
+
+        return $this;
+    }
+
+    /**
+     * Remove asignacionAlumno
+     *
+     * @param \GestorFCTBundle\Entity\Asignaciones $asignacionAlumno
+     */
+    public function removeAsignacionAlumno(\GestorFCTBundle\Entity\Asignaciones $asignacionAlumno)
+    {
+        $this->asignacionAlumno->removeElement($asignacionAlumno);
+    }
+
+    /**
+     * Get asignacionAlumno
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAsignacionAlumno()
+    {
+        return $this->asignacionAlumno;
     }
 }

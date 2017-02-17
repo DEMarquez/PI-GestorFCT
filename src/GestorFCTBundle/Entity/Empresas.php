@@ -42,6 +42,10 @@ class Empresas
      */
     private $aportadaAlumno;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Asignaciones", mappedBy="idEmpresa")
+     */
+    private $asignacionEmpresa;
 
     /**
      * Get id
@@ -123,5 +127,46 @@ class Empresas
     public function getAportadaAlumno()
     {
         return $this->aportadaAlumno;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->asignacionEmpresa = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add asignacionEmpresa
+     *
+     * @param \GestorFCTBundle\Entity\Asignaciones $asignacionEmpresa
+     *
+     * @return Empresas
+     */
+    public function addAsignacionEmpresa(\GestorFCTBundle\Entity\Asignaciones $asignacionEmpresa)
+    {
+        $this->asignacionEmpresa[] = $asignacionEmpresa;
+
+        return $this;
+    }
+
+    /**
+     * Remove asignacionEmpresa
+     *
+     * @param \GestorFCTBundle\Entity\Asignaciones $asignacionEmpresa
+     */
+    public function removeAsignacionEmpresa(\GestorFCTBundle\Entity\Asignaciones $asignacionEmpresa)
+    {
+        $this->asignacionEmpresa->removeElement($asignacionEmpresa);
+    }
+
+    /**
+     * Get asignacionEmpresa
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAsignacionEmpresa()
+    {
+        return $this->asignacionEmpresa;
     }
 }

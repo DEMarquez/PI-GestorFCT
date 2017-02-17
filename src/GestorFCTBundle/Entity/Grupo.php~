@@ -68,4 +68,45 @@ class Grupo
     {
         return $this->nombre;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->alumnos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add alumno
+     *
+     * @param \GestorFCTBundle\Entity\Grupo $alumno
+     *
+     * @return Grupo
+     */
+    public function addAlumno(\GestorFCTBundle\Entity\Grupo $alumno)
+    {
+        $this->alumnos[] = $alumno;
+
+        return $this;
+    }
+
+    /**
+     * Remove alumno
+     *
+     * @param \GestorFCTBundle\Entity\Grupo $alumno
+     */
+    public function removeAlumno(\GestorFCTBundle\Entity\Grupo $alumno)
+    {
+        $this->alumnos->removeElement($alumno);
+    }
+
+    /**
+     * Get alumnos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAlumnos()
+    {
+        return $this->alumnos;
+    }
 }

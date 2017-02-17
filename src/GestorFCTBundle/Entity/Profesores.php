@@ -35,6 +35,10 @@ class Profesores
      */
     private $grupo;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Asignaciones", mappedBy="idProfesor")
+     */
+    private $asignacionProfesor;
 
     /**
      * Get id
@@ -92,5 +96,46 @@ class Profesores
     public function getGrupo()
     {
         return $this->grupo;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->asignacionProfesor = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add asignacionProfesor
+     *
+     * @param \GestorFCTBundle\Entity\Asignaciones $asignacionProfesor
+     *
+     * @return Profesores
+     */
+    public function addAsignacionProfesor(\GestorFCTBundle\Entity\Asignaciones $asignacionProfesor)
+    {
+        $this->asignacionProfesor[] = $asignacionProfesor;
+
+        return $this;
+    }
+
+    /**
+     * Remove asignacionProfesor
+     *
+     * @param \GestorFCTBundle\Entity\Asignaciones $asignacionProfesor
+     */
+    public function removeAsignacionProfesor(\GestorFCTBundle\Entity\Asignaciones $asignacionProfesor)
+    {
+        $this->asignacionProfesor->removeElement($asignacionProfesor);
+    }
+
+    /**
+     * Get asignacionProfesor
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAsignacionProfesor()
+    {
+        return $this->asignacionProfesor;
     }
 }
