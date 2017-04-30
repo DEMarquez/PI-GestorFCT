@@ -6,18 +6,30 @@ Empresas_all:
     path:     /empresas/all
     defaults: { _controller: GestorFCTBundle:Empresas:all }
 
+Empresas_new:
+    path:     /empresas/new
+    defaults: { _controller: GestorFCTBundle:Empresas:new }
+
 Alumnos_all:
     path:     /alumnos/all
     defaults: { _controller: GestorFCTBundle:Alumnos:all }
+
+Alumnos_new:
+    path:     /alumnos/new
+    defaults: { _controller: GestorFCTBundle:Alumnos:new }
 
 Profesores_all:
     path:     /profesores/all
     defaults: { _controller: GestorFCTBundle:Profesores:all }
 
+Profesores_new:
+    path:     /profesores/new
+    defaults: { _controller: GestorFCTBundle:Profesores:new }
+
 Grupo_all:
     path:     /grupo/all
     defaults: { _controller: GestorFCTBundle:Grupo:all }
 
-Empresas_new:
-    path:     /empresas/new
-    defaults: { _controller: GestorFCTBundle:Empresas:new }
+Grupo_new:
+    path:     /grupo/new
+    defaults: { _controller: GestorFCTBundle:Grupo:new }

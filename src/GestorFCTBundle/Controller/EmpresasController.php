@@ -31,7 +31,7 @@ class EmpresasController extends Controller
       $em->persist($empresa);
       $em->flush();
 
-      //return $this->redirectToRoute('trask_success');
+      return $this->redirectToRoute('Empresas_all');
     }
 
     return $this->render('GestorFCTBundle:Empresas:new.html.twig',array("form"=>$form->createView() ));
