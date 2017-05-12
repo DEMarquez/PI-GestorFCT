@@ -20,7 +20,7 @@ class GrupoController extends Controller
 
   public function newAction(Request $request)
   {
-    $grupo=new Grupos();
+    $grupo=new Grupo();
     $form=$this->createForm(GrupoType::class,$grupo);
 
     $form->handleRequest($request);

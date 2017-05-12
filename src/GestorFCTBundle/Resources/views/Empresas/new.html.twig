@@ -1,12 +1,39 @@
-<!DOCTIPE html>
-<html>
-  <head>
-    <link href="{{asset('/css/styleGfct.css')}}" rel="stylesheet">
-  </head>
-  <body class="cuerpo2">
-    <nav>
-      <h1>Formulario Nueva Empresa</h1>
-      {{form(form)}}
-    </nav>
-  </body>
-</html>
+{% extends 'GestorFCTBundle:Default:frontend.html.twig' %}
+
+{% block main %}
+  <div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Formulario Nueva Empresa
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i>  <a href="index.html">Inicio</a>
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-edit"></i> Nueva Empresa
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <form role="form">
+                    {{form(form)}}
+                </form>
+
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+{% endblock %}

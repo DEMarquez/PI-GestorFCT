@@ -1,3 +1,4 @@
+
 gestor_fct_homepage:
     path:     /
     defaults: { _controller: GestorFCTBundle:Default:index }
