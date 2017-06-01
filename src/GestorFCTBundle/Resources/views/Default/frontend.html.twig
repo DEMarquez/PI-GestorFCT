@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="{{path('gestor_fct_homepage')}}">Gestor FCT</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -118,55 +118,60 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="blog/index.html.twig"><i class="fa fa-fw fa-dashboard"></i> Inicio</a>
+                        <a href="{{path('gestor_fct_homepage')}}"><i class="fa fa-fw fa-home"></i> Inicio</a>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bars"></i> Listado de asignaciones</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-check-square"></i> Asignación</a>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-briefcase"></i> Empresas <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <a href="#" data-toggle="collapse" data-target="#asignacion"><i class="fa fa-fw fa-check-square"></i> Asignaciones <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="asignacion" class="collapse">
                             <li>
-                                <a href="#">Listado Empresas</a>
+                                <a href="{{path('Asignaciones_all')}}"><i class="fa fa-fw fa-table"></i> Listado Asignaciones</a>
                             </li>
                             <li>
-                                <a href="#">Nueva Empresa</a>
+                                <a href="{{path('Asignaciones_new')}}"><i class="fa fa-fw fa-plus-square-o"></i> Nueva Asignación</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-graduation-cap"></i> Alumnos <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <a href="#" data-toggle="collapse" data-target="#empresas"><i class="fa fa-fw fa-briefcase"></i> Empresas <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="empresas" class="collapse">
                             <li>
-                                <a href="#">Listado Alumnos</a>
+                                <a href="{{path('Empresas_all')}}"><i class="fa fa-fw fa-table"></i> Listado Empresas</a>
                             </li>
                             <li>
-                                <a href="#">Nuevo Alumno</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-eye"></i> Tutores <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Listado Tutores</a>
-                            </li>
-                            <li>
-                                <a href="#">Nuevo Tutor</a>
+                                <a href="{{path('Empresas_new')}}"><i class="fa fa-fw fa-plus-square-o"></i> Nueva Empresa</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-users"></i> Grupo <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <a href="#" data-toggle="collapse" data-target="#alumnos"><i class="fa fa-fw fa-graduation-cap"></i> Alumnos <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="alumnos" class="collapse">
                             <li>
-                                <a href="#">Listado Grupos</a>
+                                <a href="{{path('Alumnos_all')}}"><i class="fa fa-fw fa-table"></i> Listado Alumnos</a>
                             </li>
                             <li>
-                                <a href="#">Nuevo Grupo</a>
+                                <a href="{{path('Alumnos_new')}}"><i class="fa fa-fw fa-plus-square-o"></i> Nuevo Alumno</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#profesores"><i class="fa fa-fw fa-eye"></i> Tutores <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="profesores" class="collapse">
+                            <li>
+                                <a href="{{path('Profesores_all')}}"><i class="fa fa-fw fa-table"></i> Listado Tutores</a>
+                            </li>
+                            <li>
+                                <a href="{{path('Profesores_new')}}"><i class="fa fa-fw fa-plus-square-o"></i> Nuevo Tutor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#grupo"><i class="fa fa-fw fa-users"></i> Grupo <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="grupo" class="collapse">
+                            <li>
+                                <a href="{{path('Grupo_all')}}"><i class="fa fa-fw fa-table"></i> Listado Grupos</a>
+                            </li>
+                            <li>
+                                <a href="{{path('Grupo_new')}}"><i class="fa fa-fw fa-plus-square-o"></i> Nuevo Grupo</a>
                             </li>
                         </ul>
                     </li>

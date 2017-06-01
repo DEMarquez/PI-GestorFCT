@@ -22,19 +22,27 @@ class EmpresasController extends Controller
   {
     $empresas=new Empresas();
     $form=$this->createForm(EmpresasType::class,$empresas);
-
     $form->handleRequest($request);
     if($form->isSubmitted() && $form->isValid()){
-      $empresa=$form->getData();
+      $empresas=$form->getData();
 
       $em=$this->getDoctrine()->getManager();
-      $em->persist($empresa);
+      $em->persist($empresas);
       $em->flush();
 
       return $this->redirectToRoute('Empresas_all');
     }
 
     return $this->render('GestorFCTBundle:Empresas:new.html.twig',array("form"=>$form->createView() ));
+  }
+
+  public function deleteAction($id)
+  {
+      $em = $this->getDoctrine()->getManager();
+      $empresas= $em->getRepository('GestorFCTBundle:Empresas')->find($id);
+      $em->remove($empresas);
+      $em->flush();
+      return $this->redirectToRoute('Empresas_all');
   }
 
 }

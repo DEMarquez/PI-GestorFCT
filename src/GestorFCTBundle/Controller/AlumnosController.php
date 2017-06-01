@@ -25,16 +25,25 @@ class AlumnosController extends Controller
 
     $form->handleRequest($request);
     if($form->isSubmitted() && $form->isValid()){
-      $empresa=$form->getData();
+      $alumnos=$form->getData();
 
       $em=$this->getDoctrine()->getManager();
-      $em->persist($empresa);
+      $em->persist($alumnos);
       $em->flush();
 
       return $this->redirectToRoute('Alumnos_all');
     }
 
     return $this->render('GestorFCTBundle:Alumnos:new.html.twig',array("form"=>$form->createView() ));
+  }
+
+  public function deleteAction($id)
+  {
+      $em = $this->getDoctrine()->getManager();
+      $alumnos= $em->getRepository('GestorFCTBundle:Alumnos')->find($id);
+      $em->remove($alumnos);
+      $em->flush();
+      return $this->redirectToRoute('Alumnos_all');
   }
 
 }

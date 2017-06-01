@@ -37,4 +37,13 @@ class GrupoController extends Controller
     return $this->render('GestorFCTBundle:Grupo:new.html.twig',array("form"=>$form->createView() ));
   }
 
+  public function deleteAction($id)
+  {
+      $em = $this->getDoctrine()->getManager();
+      $grupo= $em->getRepository('GestorFCTBundle:Grupo')->find($id);
+      $em->remove($grupo);
+      $em->flush();
+      return $this->redirectToRoute('Grupo_all');
+  }
+
 }

@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class AsignacionesType extends AbstractType
 {
@@ -18,12 +19,18 @@ class AsignacionesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fecha',DateType::class, array('label'=>'Nombre'))
-            ->add('idProfesor')
-            ->add('idEmpresa')
-            ->add('idAlumno')
-            ->add('guardar',SubmitType::class,array('label'=>'Salvar'))
-            ->add('borrar',ResetType::class,array('label'=>'Borrar'))
+            ->add('fecha',DateType::class, ['widget' => 'single_text'], array('label'=>'Fecha',
+                                                                              'attr' => array('class' => 'form-control')))
+            ->add('idProfesor',ChoiceType::class, array('label'=>'Profesor',
+                                                        'attr' => array('class' => 'form-control')))
+            ->add('idEmpresa',ChoiceType::class, array('label'=>'Empresa',
+                                                        'attr' => array('class' => 'form-control')))
+            ->add('idAlumno',ChoiceType::class, array('label'=>'Alumno',
+                                                      'attr' => array('class' => 'form-control')))
+            ->add('guardar',SubmitType::class,array('label'=>'Salvar',
+                                                    'attr' => array('class' => 'btn btn-success')))
+            ->add('borrar',ResetType::class,array('label'=>'Borrar',
+                                                  'attr' => array('class' => 'btn btn-danger')))
         ;
     }
 

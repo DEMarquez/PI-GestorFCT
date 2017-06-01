@@ -17,10 +17,14 @@ class ProfesoresType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre',TextType::class,array('label'=>'Nombre'))
-            ->add('grupo',TextType::class,array('label'=>'Grupo'))
-            ->add('guardar',SubmitType::class,array('label'=>'Salvar'))
-            ->add('borrar',ResetType::class,array('label'=>'Borrar'))
+            ->add('nombre',TextType::class,array('label'=>'Nombre',
+                                                  'attr' => array('class' => 'form-control')))
+            ->add('grupo',TextType::class,array('label'=>'Grupo',
+                                                'attr' => array('class' => 'form-control')))
+            ->add('guardar',SubmitType::class,array('label'=>'Salvar',
+                                                    'attr' => array('class' => 'btn btn-success')))
+            ->add('borrar',ResetType::class,array('label'=>'Borrar',
+                                                  'attr' => array('class' => 'btn btn-danger')))
         ;
     }
 

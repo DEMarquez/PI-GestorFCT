@@ -21,6 +21,7 @@
                           <th>Residencia</th>
                           <th>Transporte</th>
                           <th>Grupo</th>
+                          <th>Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -33,7 +34,11 @@
                             <td>{{ item.Telefono }}</td>
                             <td>{{ item.residencia }}</td>
                             <td>{{ item.transporte }}</td>
-                            <td>{{ item.grupo }}</td>
+                            <td>{{ item.grupo.nombre }}</td>
+                            <td>
+                              <a class="btn btn-danger btn-xs delete-button" href="{{path('Alumnos_delete',{'id':item.id})}}"><i class="fa fa-times"></i>Eliminar</a>
+                              <a class="btn btn-warning btn-xs" href=""><i class="fa fa-pencil"></i>Modificar</a>
+                            </td>
                           <tr>
                         {% endfor %}
                       </tbody>

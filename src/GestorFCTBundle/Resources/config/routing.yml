@@ -11,6 +11,10 @@ Empresas_new:
     path:     /empresas/new
     defaults: { _controller: GestorFCTBundle:Empresas:new }
 
+Empresas_delete:
+    path:     /empresas/delete/{id}
+    defaults: { _controller: GestorFCTBundle:Empresas:delete }
+
 Alumnos_all:
     path:     /alumnos/all
     defaults: { _controller: GestorFCTBundle:Alumnos:all }
@@ -18,6 +22,10 @@ Alumnos_all:
 Alumnos_new:
     path:     /alumnos/new
     defaults: { _controller: GestorFCTBundle:Alumnos:new }
+
+Alumnos_delete:
+    path:     /alumnos/delete/{id}
+    defaults: { _controller: GestorFCTBundle:Alumnos:delete }
 
 Profesores_all:
     path:     /profesores/all
@@ -27,6 +35,10 @@ Profesores_new:
     path:     /profesores/new
     defaults: { _controller: GestorFCTBundle:Profesores:new }
 
+Profesores_delete:
+    path:     /profesores/delete/{id}
+    defaults: { _controller: GestorFCTBundle:Profesores:delete }
+
 Grupo_all:
     path:     /grupo/all
     defaults: { _controller: GestorFCTBundle:Grupo:all }
@@ -34,3 +46,19 @@ Grupo_all:
 Grupo_new:
     path:     /grupo/new
     defaults: { _controller: GestorFCTBundle:Grupo:new }
+
+Grupo_delete:
+    path:     /grupo/delete/{id}
+    defaults: { _controller: GestorFCTBundle:Grupo:delete }
+
+Asignaciones_all:
+    path:     /asignaciones/all
+    defaults: { _controller: GestorFCTBundle:Asignaciones:all }
+
+Asignaciones_new:
+    path:     /asignaciones/new
+    defaults: { _controller: GestorFCTBundle:Asignaciones:new }
+
+Asignaciones_delete:
+    path:     /asignaciones/delete/{id}
+    defaults: { _controller: GestorFCTBundle:Asignaciones:delete }

@@ -37,4 +37,13 @@ class ProfesoresController extends Controller
     return $this->render('GestorFCTBundle:Profesores:new.html.twig',array("form"=>$form->createView() ));
   }
 
+  public function deleteAction($id)
+  {
+      $em = $this->getDoctrine()->getManager();
+      $profesor= $em->getRepository('GestorFCTBundle:Profesores')->find($id);
+      $em->remove($profesor);
+      $em->flush();
+      return $this->redirectToRoute('Profesores_all');
+  }
+
 }

@@ -16,6 +16,7 @@
                           <th>#</th>
                           <th>Nombre</th>
                           <th>Grupo</th>
+                          <th>Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -24,6 +25,10 @@
                             <td>{{ item.id }}</td>
                             <td>{{ item.nombre }}</td>
                             <td>{{ item.grupo }}</td>
+                            <td>
+                              <a class="btn btn-danger btn-xs delete-button" href="{{path('Profesores_delete',{'id':item.id})}}"><i class="fa fa-times"></i>Eliminar</a>
+                              <a class="btn btn-warning btn-xs" href=""><i class="fa fa-pencil"></i>Modificar</a>
+                            </td>
                           <tr>
                         {% endfor %}
                       </tbody>
