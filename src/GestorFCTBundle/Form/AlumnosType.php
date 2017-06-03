@@ -35,11 +35,12 @@ class AlumnosType extends AbstractType
                                                       'choices' => [
                                                       'Si' => true,
                                                       'No' => false]))
-            ->add('grupo',EntityType::class, array('class' => 'GestorFCTBundle:Grupo',
-                                                    'choice_label' => function($nombreGrupo){
+            ->add('grupo',EntityType::class, array('label'=>'Grupo',
+                                                   'class' => 'GestorFCTBundle:Grupo',
+                                                   'choice_label' => function($nombreGrupo){
                                                       return $nombreGrupo->getNombre();
-                                                      }
-                                                    ))
+                                                    },
+                                                    'attr' => array('class' => 'form-control')))
             ->add('guardar',SubmitType::class,array('label'=>'Salvar',
                                                     'attr' => array('class' => 'btn btn-success')))
             ->add('borrar',ResetType::class,array('label'=>'Borrar',

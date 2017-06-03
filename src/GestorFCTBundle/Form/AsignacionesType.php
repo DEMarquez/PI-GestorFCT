@@ -19,23 +19,27 @@ class AsignacionesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fecha',DateType::class, ['widget' => 'single_text'], array('label'=>'Fecha',
-                                                                              'attr' => array('class' => 'form-control')))
-            ->add('idProfesor',EntityType::class, array('class' => 'GestorFCTBundle:Profesores',
-                                                    'choice_label' => function($nombreProfesor){
-                                                      return $nombreProfesor->getNombre();
-                                                      }
-                                                    ))
-            ->add('idEmpresa',EntityType::class, array('class' => 'GestorFCTBundle:Empresas',
-                                                    'choice_label' => function($nombreEmpresa){
-                                                      return $nombreEmpresa->getNombre();
-                                                      }
-                                                    ))
-            ->add('idAlumno',EntityType::class, array('class' => 'GestorFCTBundle:Alumnos',
-                                                    'choice_label' => function($nombreAlumno){
-                                                      return $nombreAlumno->getNombre();
-                                                      }
-                                                    ))
+            ->add('fecha',DateType::class, array('label'=>'Fecha',
+                                                 'widget' => 'single_text',
+                                                 'attr' => array('class' => 'form-control')))
+            ->add('idProfesor',EntityType::class, array('label'=>'Profesor',
+                                                        'class' => 'GestorFCTBundle:Profesores',
+                                                        'choice_label' => function($nombreProfesor){
+                                                          return $nombreProfesor->getNombre();
+                                                        },
+                                                        'attr' => array('class' => 'form-control')))
+            ->add('idEmpresa',EntityType::class, array('label'=>'Empresa',
+                                                       'class' => 'GestorFCTBundle:Empresas',
+                                                       'choice_label' => function($nombreEmpresa){
+                                                          return $nombreEmpresa->getNombre();
+                                                       },
+                                                       'attr' => array('class' => 'form-control')))
+            ->add('idAlumno',EntityType::class, array('label'=>'Alumno',
+                                                      'class' => 'GestorFCTBundle:Alumnos',
+                                                      'choice_label' => function($nombreAlumno){
+                                                        return $nombreAlumno->getNombre();
+                                                      },
+                                                      'attr' => array('class' => 'form-control')))
             ->add('guardar',SubmitType::class,array('label'=>'Salvar',
                                                     'attr' => array('class' => 'btn btn-success')))
             ->add('borrar',ResetType::class,array('label'=>'Borrar',
