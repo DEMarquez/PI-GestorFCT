@@ -29,7 +29,7 @@
                             <td>{{ item.aportadaAlumno }}</td>
                             <td>
                               <a class="btn btn-danger btn-xs delete-button" href="{{path('Empresas_delete',{'id':item.id})}}"><i class="fa fa-times"></i>Eliminar</a>
-                              <a class="btn btn-warning btn-xs" href=""><i class="fa fa-pencil"></i>Modificar</a>
+                              <a class="btn btn-warning btn-xs" href="{{path('Empresas_update',{'id':item.id})}}"><i class="fa fa-pencil"></i>Modificar</a>
                             </td>
                           <tr>
                         {% endfor %}

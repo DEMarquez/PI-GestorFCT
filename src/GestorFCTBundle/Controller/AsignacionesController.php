@@ -46,4 +46,22 @@ class AsignacionesController extends Controller
       return $this->redirectToRoute('Asignaciones_all');
   }
 
+  public function updateAction(Request $request, $id)
+  {
+      $em=$this->getDoctrine()->getManager();
+      $asignacion = $em->getRepository('GestorFCTBundle:Asignaciones')->find($id);
+      $form=$this->createForm(AsignacionesType::class,$asignacion);
+      $form->handleRequest($request);
+          if ($form->isSubmitted() && $form->isValid()) {
+              $asignacion=$form->getData();
+              $em=$this->getDoctrine()->getManager();
+              $em->flush();
+
+            return $this->redirectToRoute('Asignaciones_all');
+          }
+
+
+      return $this->render('GestorFCTBundle:Asignaciones:update.html.twig',array("form"=>$form->createView() ));
+  }
+
 }

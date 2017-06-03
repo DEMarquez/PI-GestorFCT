@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class AsignacionesType extends AbstractType
 {
@@ -21,12 +21,21 @@ class AsignacionesType extends AbstractType
         $builder
             ->add('fecha',DateType::class, ['widget' => 'single_text'], array('label'=>'Fecha',
                                                                               'attr' => array('class' => 'form-control')))
-            ->add('idProfesor',ChoiceType::class, array('label'=>'Profesor',
-                                                        'attr' => array('class' => 'form-control')))
-            ->add('idEmpresa',ChoiceType::class, array('label'=>'Empresa',
-                                                        'attr' => array('class' => 'form-control')))
-            ->add('idAlumno',ChoiceType::class, array('label'=>'Alumno',
-                                                      'attr' => array('class' => 'form-control')))
+            ->add('idProfesor',EntityType::class, array('class' => 'GestorFCTBundle:Profesores',
+                                                    'choice_label' => function($nombreProfesor){
+                                                      return $nombreProfesor->getNombre();
+                                                      }
+                                                    ))
+            ->add('idEmpresa',EntityType::class, array('class' => 'GestorFCTBundle:Empresas',
+                                                    'choice_label' => function($nombreEmpresa){
+                                                      return $nombreEmpresa->getNombre();
+                                                      }
+                                                    ))
+            ->add('idAlumno',EntityType::class, array('class' => 'GestorFCTBundle:Alumnos',
+                                                    'choice_label' => function($nombreAlumno){
+                                                      return $nombreAlumno->getNombre();
+                                                      }
+                                                    ))
             ->add('guardar',SubmitType::class,array('label'=>'Salvar',
                                                     'attr' => array('class' => 'btn btn-success')))
             ->add('borrar',ResetType::class,array('label'=>'Borrar',

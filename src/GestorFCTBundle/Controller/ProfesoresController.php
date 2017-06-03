@@ -46,4 +46,22 @@ class ProfesoresController extends Controller
       return $this->redirectToRoute('Profesores_all');
   }
 
+  public function updateAction(Request $request, $id)
+  {
+      $em=$this->getDoctrine()->getManager();
+      $profesor = $em->getRepository('GestorFCTBundle:Profesores')->find($id);
+      $form=$this->createForm(ProfesoresType::class,$profesor);
+      $form->handleRequest($request);
+          if ($form->isSubmitted() && $form->isValid()) {
+              $profesor=$form->getData();
+              $em=$this->getDoctrine()->getManager();
+              $em->flush();
+
+            return $this->redirectToRoute('Profesores_all');
+          }
+
+
+      return $this->render('GestorFCTBundle:Profesores:update.html.twig',array("form"=>$form->createView() ));
+  }
+
 }

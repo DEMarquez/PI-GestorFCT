@@ -46,4 +46,22 @@ class GrupoController extends Controller
       return $this->redirectToRoute('Grupo_all');
   }
 
+  public function updateAction(Request $request, $id)
+  {
+      $em=$this->getDoctrine()->getManager();
+      $grupo = $em->getRepository('GestorFCTBundle:Grupo')->find($id);
+      $form=$this->createForm(GrupoType::class,$grupo);
+      $form->handleRequest($request);
+          if ($form->isSubmitted() && $form->isValid()) {
+              $grupo=$form->getData();
+              $em=$this->getDoctrine()->getManager();
+              $em->flush();
+
+            return $this->redirectToRoute('Grupo_all');
+          }
+
+
+      return $this->render('GestorFCTBundle:Grupo:update.html.twig',array("form"=>$form->createView() ));
+  }
+
 }

@@ -45,4 +45,22 @@ class EmpresasController extends Controller
       return $this->redirectToRoute('Empresas_all');
   }
 
+public function updateAction(Request $request, $id)
+{
+    $em=$this->getDoctrine()->getManager();
+    $empresas = $em->getRepository('GestorFCTBundle:Empresas')->find($id);
+    $form=$this->createForm(EmpresasType::class,$empresas);
+    $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $empresas=$form->getData();
+            $em=$this->getDoctrine()->getManager();
+            $em->flush();
+
+          return $this->redirectToRoute('Empresas_all');
+        }
+
+
+    return $this->render('GestorFCTBundle:Empresas:update.html.twig',array("form"=>$form->createView() ));
+}
+
 }

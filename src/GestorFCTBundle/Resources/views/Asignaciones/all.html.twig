@@ -6,7 +6,7 @@
     <div class="col-lg-12">
       <div class="panel panel-default">
           <div class="panel-heading">
-              <h3 class="panel-title"><i class="fa fa-eye fa-fw"></i> Tabla de Asignaciones FCT</h3>
+              <h3 class="panel-title"><i class="fa fa-check-square fa-fw"></i> Tabla de Asignaciones FCT</h3>
           </div>
           <div class="panel-body">
               <div class="table-responsive">
@@ -31,7 +31,7 @@
                             <td>{{ item.idAlumno.nombre }}</td>
                             <td>
                               <a class="btn btn-danger btn-xs delete-button" href="{{path('Asignaciones_delete',{'id':item.id})}}"><i class="fa fa-times"></i>Eliminar</a>
-                              <a class="btn btn-warning btn-xs" href=""><i class="fa fa-pencil"></i>Modificar</a>
+                              <a class="btn btn-warning btn-xs" href="{{path('Asignaciones_update',{'id':item.id})}}"><i class="fa fa-pencil"></i>Modificar</a>
                             </td>
                           <tr>
                         {% endfor %}

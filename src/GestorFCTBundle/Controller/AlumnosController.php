@@ -46,4 +46,22 @@ class AlumnosController extends Controller
       return $this->redirectToRoute('Alumnos_all');
   }
 
+  public function updateAction(Request $request, $id)
+  {
+      $em=$this->getDoctrine()->getManager();
+      $alumnos = $em->getRepository('GestorFCTBundle:Alumnos')->find($id);
+      $form=$this->createForm(AlumnosType::class,$alumnos);
+      $form->handleRequest($request);
+          if ($form->isSubmitted() && $form->isValid()) {
+              $alumnos=$form->getData();
+              $em=$this->getDoctrine()->getManager();
+              $em->flush();
+
+            return $this->redirectToRoute('Alumnos_all');
+          }
+
+
+      return $this->render('GestorFCTBundle:Alumnos:update.html.twig',array("form"=>$form->createView() ));
+  }
+
 }

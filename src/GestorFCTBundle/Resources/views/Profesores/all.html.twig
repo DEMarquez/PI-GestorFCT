@@ -27,7 +27,7 @@
                             <td>{{ item.grupo }}</td>
                             <td>
                               <a class="btn btn-danger btn-xs delete-button" href="{{path('Profesores_delete',{'id':item.id})}}"><i class="fa fa-times"></i>Eliminar</a>
-                              <a class="btn btn-warning btn-xs" href=""><i class="fa fa-pencil"></i>Modificar</a>
+                              <a class="btn btn-warning btn-xs" href="{{path('Profesores_update',{'id':item.id})}}"><i class="fa fa-pencil"></i>Modificar</a>
                             </td>
                           <tr>
                         {% endfor %}

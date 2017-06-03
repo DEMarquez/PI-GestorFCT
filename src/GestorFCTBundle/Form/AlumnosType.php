@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class AlumnosType extends AbstractType
@@ -30,13 +30,16 @@ class AlumnosType extends AbstractType
                                                 'attr' => array('class' => 'form-control')))
             ->add('residencia',TextType::class, array('label'=>'Residencia',
                                                       'attr' => array('class' => 'form-control')))
-            ->add('transporte',ChoiceType::class, ['choices' => [
-                                                    'Si' => true,
-                                                    'No' => false]],
-                                                    array('label'=>'Trasporte',
-                                                          'attr' => array('class' => 'form-control')))
-            ->add('grupo',ChoiceType::class, array('label'=>'Curso',
-                                                          'attr' => array('class' => 'form-check-input')))
+            ->add('transporte',ChoiceType::class, array('label'=>'Trasporte',
+                                                      'attr' => array('class' => 'form-control'),
+                                                      'choices' => [
+                                                      'Si' => true,
+                                                      'No' => false]))
+            ->add('grupo',EntityType::class, array('class' => 'GestorFCTBundle:Grupo',
+                                                    'choice_label' => function($nombreGrupo){
+                                                      return $nombreGrupo->getNombre();
+                                                      }
+                                                    ))
             ->add('guardar',SubmitType::class,array('label'=>'Salvar',
                                                     'attr' => array('class' => 'btn btn-success')))
             ->add('borrar',ResetType::class,array('label'=>'Borrar',

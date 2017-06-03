@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EmpresasType extends AbstractType
 {
@@ -22,8 +22,11 @@ class EmpresasType extends AbstractType
                                                   'attr' => array('class' => 'form-control')))
             ->add('poblacion',TextType::class,array('label'=>'Poblacion',
                                                   'attr' => array('class' => 'form-control')))
-            ->add('aportadaAlumno',CheckboxType::class,array('label'=>'Aportada por el alumno',
-                                                  'attr' => array('class' => 'form-check-input')))
+            ->add('aportadaAlumno',ChoiceType::class, array('label'=>'Aportada por Alumno',
+                                                      'attr' => array('class' => 'form-control'),
+                                                      'choices' => [
+                                                      'Si' => true,
+                                                      'No' => false]))
             ->add('guardar',SubmitType::class,array('label'=>'Salvar',
                                                     'attr' => array('class' => 'btn btn-success')))
             ->add('borrar',ResetType::class,array('label'=>'Borrar',
