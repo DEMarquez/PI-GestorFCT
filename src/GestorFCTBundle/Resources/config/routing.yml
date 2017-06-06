@@ -1,7 +1,7 @@
 
 gestor_fct_homepage:
     path:     /
-    defaults: { _controller: GestorFCTBundle:Default:index }
+    defaults: { _controller: GestorFCTBundle:Default:index }    
 
 Empresas_all:
     path:     /empresas/all
